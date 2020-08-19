@@ -2,7 +2,7 @@
 fn = input('Enter file:')
 if len(fn) < 1: fn = 'interview.log'
 
-count = 0
+#count = 0
 c = {}
 
 def count_ids(timestamp, string):
@@ -20,8 +20,8 @@ with open(fn) as f:
         line = line.rstrip().split(':')
         timestamp = int(line[0][:11])
         count_ids(timestamp, line[1])
-        count += 1
-        if count == 2000: break
+        #count += 1
+        #if count == 2000: break
 
 inp = input('unique or total? ')
 
