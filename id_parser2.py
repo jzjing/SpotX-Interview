@@ -11,7 +11,7 @@ def count_ids(ts, s, r):
         else:
              r[ts] = [i]
 
-def readfile(data):
+def read_file(data):
     results = {}
     with open(data) as f:
         for line in f:
@@ -20,7 +20,7 @@ def readfile(data):
             count_ids(timestamp, line[1], results)
     return results
 
-def writefile(r):
+def write_file(r):
     u = open('unique.txt', 'w')
     n = open('nonunique.txt', 'w')
     for ts in r:
@@ -32,8 +32,8 @@ def writefile(r):
     n.close()
 
 def main():
-    results = readfile(argv[1])
-    writefile(results)
+    results = read_file(argv[1])
+    write_file(results)
 
 if __name__ == "__main__":
     main()
