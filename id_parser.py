@@ -27,10 +27,10 @@ def write_file(r, arg):
         nonunique += ((str(ts) + ':' + str(len(r[ts])) + '\n'))
 
     if arg in ['u', 'unique']:
-        output = open('unique.txt', 'w')
+        output = open('/var/www/unique.txt', 'w')
         output.write(unique)
     else:
-        output = open('nonunique.txt', 'w')
+        output = open('/var/www/nonunique.txt', 'w')
         output.write(nonunique)
     output.close()
 
