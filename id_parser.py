@@ -2,9 +2,7 @@
 import sys, getopt
 
 def parse_ids(ts, s, r):
-    #convert string ids to lists
     s = s.strip('[]').replace(" ", "").split(',')
-    #append ids to a key
     for i in s:
         if ts in r:
             r[ts].append(i)
@@ -37,22 +35,16 @@ def write_file(r, arg):
     output.close()
 
 def main(argv):
-    #CLI options
     try:
         opts, args = getopt.getopt(argv, 'f:o:', ['file=', 'output='])
     except getopt.GetoptError as err:
-        print(err)
         opts = []
 
     for opt, arg in opts:
         if opt in ['-f', '--file']:
-            print('file =', arg)
             arg = open(arg)
             results = read_file(arg)
         elif opt in ['-o', '--output']:
-            if arg in ['u', 'unique'] :
-                print('output = unique.txt')
-            else: print('output = nonunique.txt')
             write_file(results, arg)
 
 if __name__ == "__main__":
